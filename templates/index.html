@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🏠 Smart Housing Insights System</title>
+    <style>
+        /* Page background */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Form container */
+        form {
+            background: linear-gradient(to bottom right, #ffffff, #e0f7fa);
+            display: inline-block;
+            padding: 35px 40px;
+            border-radius: 20px;
+            margin-top: 50px;
+            width: 480px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Inputs and dropdowns */
+        input, select {
+            margin: 10px 0;
+            padding: 10px;
+            width: 90%;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        input:focus, select:focus {
+            border-color: #ff4081;
+            box-shadow: 0 0 5px #ff4081;
+        }
+
+        /* Button styling */
+        button {
+            padding: 12px 30px;
+            background: linear-gradient(to right, #007bff, #00bcd4);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #00bcd4, #007bff);
+        }
+
+        /* Headings */
+        h1 {
+            color: #007bff;
+            text-shadow: 1px 1px 2px #aaa;
+            margin-top: 30px;
+        }
+
+        /* Labels */
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            padding-top: 100px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 30px;
+            border: 2px solid #888;
+            width: 400px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover { color: #000; }
+    </style>
+</head>
+<body>
+    <h1>🏡 Smart Housing Insights System</h1>
+
+    <form action="/predict" method="POST">
+        <label>🏗️ Overall Quality (1-10):</label><br>
+        <select name="OverallQual" required>
+            {% for i in range(1,11) %}
+            <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="number" name="GrLivArea" placeholder="🛋️ Living Area (sq.ft)" required><br>
+        <input type="number" name="FirstFlrSF" placeholder="🏠 1st Floor Area (sq.ft)" required><br>
+        <input type="number" name="TotalBsmtSF" placeholder="🧱 Total Basement Area (sq.ft)" required><br>
+        <input type="number" name="SecondFlrSF" placeholder="🏢 2nd Floor Area (0 if none)" required><br>
+        <input type="number" name="BsmtFinSF1" placeholder="🧰 Finished Basement Area (sq.ft)" required><br>
+
+        <label>🚿 Number of Full Bathrooms:</label><br>
+        <select name="FullBath" required>
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4+</option>
+        </select><br>
+
+        <input type="number" name="LotArea" placeholder="🌳 Lot Area (sq.ft)" required><br>
+        <input type="number" name="GarageArea" placeholder="🚗 Garage Area (sq.ft)" required><br>
+
+        <label>🚘 Garage Capacity:</label><br>
+        <select name="GarageCars" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+        </select><br><br>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    <!-- Modal container -->
+    <div id="predictionModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p id="modalText"></p>
+      </div>
+    </div>
+
+    <!-- JavaScript to show modal -->
+    <script>
+        function showModal(text) {
+            document.getElementById("modalText").innerHTML = text;
+            document.getElementById("predictionModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("predictionModal").style.display = "none";
+        }
+
+        {% if prediction_text %}
+            showModal("🏠 Predicted Price: {{ prediction_text }}<br>💰 Affordability: {{ affordability_text }}");
+        {% endif %}
+    </script>
+</body>
+</html>
