@@ -46,7 +46,6 @@ It combines **Flask**, **Python**, and **Machine Learning** to deliver real-time
 ---
 
 ## 📂 Folder Structure
-
 ```
 Smart-Housing-Insights-System/
 │
@@ -65,12 +64,6 @@ Smart-Housing-Insights-System/
 
 ## ⚙️ Getting Started
 
-### 🧩 Prerequisites
-Ensure you have the following installed:
-- Python 3.x  
-- pip (Python package manager)  
-- Virtual environment (recommended)
-
 ---
 
 ### 💻 Installation
@@ -81,11 +74,11 @@ cd -Smart-Housing-Insights-System
 ```
 # Create a virtual environment
 python -m venv venv
-```
+
 # Activate the environment
 venv\Scripts\activate    # on Windows
 source venv/bin/activate # on macOS/Linux
-```
+
 # Install dependencies
 pip install -r requirements.txt
 
