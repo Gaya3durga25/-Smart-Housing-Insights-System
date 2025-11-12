@@ -46,20 +46,20 @@ It combines **Flask**, **Python**, and **Machine Learning** to deliver real-time
 ---
 
 ## 📂 Folder Structure
+
+```text
 Smart-Housing-Insights-System/
 │
-├── app.py # Main Flask backend application
-├── house_price_model.pkl # Trained and saved ML model
-├── model.ipynb # Jupyter Notebook for model training and evaluation
-├── requirements.txt # Python dependencies
+├── app.py                      # Main Flask backend application
+├── house_price_model.pkl       # Trained and saved ML model
+├── model.ipynb                 # Jupyter Notebook for model training and evaluation
+├── requirements.txt            # Python dependencies
 │
-├── Data/ # Folder containing dataset 
+├── Data/                       # Folder containing dataset
 │
-└── templates/ # HTML templates for frontend
-├── index.html # Input form for prediction
-
-
----
+└── templates/                  # HTML templates for frontend
+    ├── index.html              # Input form for prediction
+   
 
 ## ⚙️ Getting Started
 
