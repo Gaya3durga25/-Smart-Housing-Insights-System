@@ -73,15 +73,19 @@ git clone https://github.com/Gaya3durga25/-Smart-Housing-Insights-System.git
 cd -Smart-Housing-Insights-System
 ```
 # Create a virtual environment
+```bash
 python -m venv venv
+```
 
 # Activate the environment
+``bash
 venv\Scripts\activate    # on Windows
 source venv/bin/activate # on macOS/Linux
 
 # Install dependencies
+```bash
 pip install -r requirements.txt
-
+```
 
 ### ▶️ Running the App
 
