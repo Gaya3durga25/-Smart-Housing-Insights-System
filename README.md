@@ -59,6 +59,8 @@ Smart-Housing-Insights-System/
 │
 └── templates/                  # HTML templates for frontend
     ├── index.html              # Input form for prediction
+    
+
    
 
 ## ⚙️ Getting Started
