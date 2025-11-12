@@ -58,7 +58,7 @@ Smart-Housing-Insights-System/
 │
 └── templates/                  # HTML templates for frontend
     ├── index.html              # Input form for prediction
-    └── result.html             # Output page displaying results
+
 
    
 
@@ -77,22 +77,23 @@ Ensure you have the following installed:
 # Clone this repository
 git clone https://github.com/Gaya3durga25/-Smart-Housing-Insights-System.git
 cd -Smart-Housing-Insights-System
-
+```
 # Create a virtual environment
 python -m venv venv
-
+```
 # Activate the environment
 venv\Scripts\activate    # on Windows
 source venv/bin/activate # on macOS/Linux
-
+```
 # Install dependencies
 pip install -r requirements.txt
+
 
 ### ▶️ Running the App
 
 ```bash
 python app.py
-
+```
 ## 🧮 Model & Data
 
 The model is built and trained in **`model.ipynb`** using a housing dataset.  
