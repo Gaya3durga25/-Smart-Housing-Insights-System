@@ -47,6 +47,7 @@ It combines **Flask**, **Python**, and **Machine Learning** to deliver real-time
 
 ## 📂 Folder Structure
 
+```
 Smart-Housing-Insights-System/
 │
 ├── app.py                      # Main Flask backend application
@@ -58,7 +59,7 @@ Smart-Housing-Insights-System/
 │
 └── templates/                  # HTML templates for frontend
     ├── index.html              # Input form for prediction
-
+```
 
    
 
